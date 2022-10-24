@@ -1,11 +1,14 @@
-//require == import if python
+
+
+//=====================================================================================================================
+//Imports Start..
 
 //call back variable set to express to import express
 const express = require('express');
 
 //call back variable app to call all imported function of express()
 const app = express(); 
- 
+
 //pag import ng dotenv "local environment sa file" para makuha yung environment variables
 //require(`dotenv`).config();
 
@@ -15,41 +18,67 @@ const app = express();
 //para masave yung refresh token
 //const cookieParser = require('cookie-parser');
 
-//Setting "usersDB" as function variable for calling user.json data
-const userDB ={
-    //users variable importing "File of User data .json"
-    Professor : require('./Models/Professor.json'),
-    //setUsers call data from folder name this.users
-    setUsers: function(data){this.Professor = data}
-}
-
+//set variable of function of path importing "path functions"
+const path = require('path')
 
 //set variable of enviornment port to (PORT) and environment (PORT) set to localhost 5050
 const PORT = process.env.PORT || 5050;
 
-const path = require('path')
+//Imports End ..
+//====================================================================================================================
+
+
+
+//====================================================================================================================
+//App Use Start ..
 
 //parse Forms
 app.use(express.urlencoded({extended: false}));
-
 //Parse JSON
 app.use(express.json());
-
-//
+//function to 
 app.use(express.static(path.join(__dirname,'Public')));
 
+//App use End ..
+//====================================================================================================================
+
+
+
+//====================================================================================================================
+//app use routes Start ..
+
+//function app para ilagay ito sa URL"Directory", Pero import niya muna si Routes ng ProfessorR.js
+app.use('/api/data/Register/$', require('./Routes/RegistrationR.js'));
+
+
+
+//app use routes End ..
+//====================================================================================================================
+
+
+
+//function app para kunin yung nasa loob ng curly,(/) ay root directory
 app.get('/', (req,res) => {
 
     res.sendFile(path.join(__dirname,'Views','login.html'))
 })
 
-//function app para kunin yung nasa loob ng curly, (/) meaning neto root, (Request,Response)
-app.get('/api/data/Professor$', (req,res) =>{
-    //response.status ng 
-    res.status(200).json(userDB.Professor);
-    //response.send para iprint ito sa HTML or LOCALHOST
-    //res.send(`<h1> HELLO NIGGA </h1>`)
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //User calling function "app.listen" to listen and call out "PORT", (5050) and do the stuffs under 
 app.listen(PORT, () => {
