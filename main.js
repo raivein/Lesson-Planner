@@ -1,3 +1,12 @@
+ const http = require('http');
+ 
+
+ const server = http.createServer((req,res)=>{ //request and response
+    res.write('./')
+ })
+
+server.listen(5000)
+
 function validate()
 {
     var username=document.getElementById("username").value;
