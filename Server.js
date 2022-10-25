@@ -48,9 +48,9 @@ app.use(express.static(path.join(__dirname,'Public')));
 //app use routes Start ..
 
 //function app para ilagay ito sa URL"Directory", Pero import niya muna si Routes ng ProfessorR.js
-app.use('/api/data/Register/$', require('./Routes/RegistrationR.js'));
+app.use('/api/data/Register/', require('./Routes/RegistrationR.js'));
 
-
+//app.use('/LoginPage/', require('./Routes/LoginPageR.js'));
 
 //app use routes End ..
 //====================================================================================================================
@@ -58,22 +58,13 @@ app.use('/api/data/Register/$', require('./Routes/RegistrationR.js'));
 
 
 //function app para kunin yung nasa loob ng curly,(/) ay root directory
-app.get('/', (req,res) => {
+
+
+
+app.get('/LoginPage', (req,res) => {
 
     res.sendFile(path.join(__dirname,'Views','login.html'))
 })
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
