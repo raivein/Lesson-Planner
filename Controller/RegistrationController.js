@@ -48,12 +48,11 @@ const HandleRegistrationController = async(req, res) =>{
 
     //=================================================================================================================================
    
-
     //to catch error so that the whole code or system will not stop.
     try{
 
         await fsPromises.writeFile(path.join(__dirname, '..','Models','Professor.json'), JSON.stringify(ProfDB.Prof));
-        res.json({message: "U R Now Registered Nigga"}); 
+        res.json({message: "You are now registered"}); 
     } catch(err){
         console.error(err)
         res.sendstatus(500);

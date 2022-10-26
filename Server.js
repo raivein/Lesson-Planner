@@ -10,13 +10,13 @@ const express = require('express');
 const app = express(); 
 
 //pag import ng dotenv "local environment sa file" para makuha yung environment variables
-//require(`dotenv`).config();
+require(`dotenv`).config();
 
 //importing JWT to encrypt password Json Web Token
-//const {verifyJWT} = require
+const {verifyJWT} = require('./Middleware/verifyJWT.js');
 
 //para masave yung refresh token
-//const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 
 //set variable of function of path importing "path functions"
 const path = require('path')
@@ -38,6 +38,9 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 //function to 
 app.use(express.static(path.join(__dirname,'Public')));
+//
+app.use(cookieParser())
+
 
 //App use End ..
 //====================================================================================================================
@@ -49,6 +52,8 @@ app.use(express.static(path.join(__dirname,'Public')));
 
 //function app para ilagay ito sa URL"Directory", Pero import niya muna si Routes ng ProfessorR.js
 app.use('/api/data/Register/', require('./Routes/RegistrationR.js'));
+app.use('/api/data/auth',require('./Routes/LoginR.js'));
+app.use('/api/data/refresh',require('./Routes/RefreshR.js'));
 
 //app.use('/LoginPage/', require('./Routes/LoginPageR.js'));
 
@@ -65,9 +70,6 @@ app.get('/LoginPage', (req,res) => {
 
     res.sendFile(path.join(__dirname,'Views','login.html'))
 })
-
-
-
 
 
 
