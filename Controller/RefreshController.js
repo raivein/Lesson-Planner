@@ -1,5 +1,13 @@
-const JWT = require('jsonwebtoken');
 
+//================================================================================================
+//importing JSONWEBTOKEN with variable JWT
+const JWT = require('jsonwebtoken');
+//================================================================================================
+
+
+
+//================================================================================================
+//Setting variable "ProfDB" as function variable for calling user.json data
 const ProfDB ={
     
     //users variable importing "File of User data .json"
@@ -8,17 +16,25 @@ const ProfDB ={
     //setUsers call data from folder name this.users
     setProf: function(data){this.Prof = data}
 }
+//===============================================================================================
 
+
+
+//==============================================================================================
+//Creater function to Handle refresh token request and response
 const HandleRefreshToken = (req, res) => {
     
+    //Creating function to request cookies with variable cookies
     const cookies = req.cookies;
 
+    //if cookies calling jwt not equal send status 401
     if(!cookies?.jwt) return res.sendStatus(401);
 
+    //Creating a function to refreshToken using cookies.jwt
     const refreshToken = cookies.jwt;
 
-    //console.log(refreshToken)
-
+    //console.log(refreshToken) to test
+    //==========================================================================================
     const foundProf = ProfDB.Prof.find((u) => u.refreshToken == refreshToken );
 
     //console.log(foundProf)
