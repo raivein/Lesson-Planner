@@ -76,7 +76,7 @@ const HandleLoginController = async(req, res) =>{
 
             //add refreshToken to Prof
             const foundProfWithToken = {...foundProf, refreshToken: refreshToken};
-
+            //
             const filteredProf = ProfDB.Prof.filter((u) => u.Username !== Username);
             
             ProfDB.setProf([...filteredProf, foundProfWithToken]);
@@ -90,14 +90,16 @@ const HandleLoginController = async(req, res) =>{
 
             //Send RefreshToken as Cookie
             res.cookie('jwt', refreshToken, {
-                
+                //duration of the refresh cookie
                 maxAge: 24 * 60 * 60 * 1000,
-
+                    
                 httpOnly: true,
             })
 
             //Send AccessToken as JSON
-            res.status(200).json({accessToken: accessToken});
+            res.status(200).send("Login Successfuly").json({accessToken: accessToken});
+
+
         } catch(err){
             console.error(err)
             res.sendStatus(500)

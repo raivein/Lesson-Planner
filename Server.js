@@ -52,7 +52,7 @@ app.use(cookieParser())
 
 //function app para ilagay ito sa URL"Directory", Calling Routes
 app.use('/api/data/Register/', require('./Routes/RegistrationR.js'));
-app.use('/api/data/auth',require('./Routes/LoginR.js'));
+app.use('/api/data/Login',require('./Routes/LoginR.js'));
 app.use('/api/data/refresh',require('./Routes/RefreshR.js'));
 
 //app.use('/LoginPage/', require('./Routes/LoginPageR.js'));
