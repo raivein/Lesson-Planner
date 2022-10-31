@@ -1,12 +1,14 @@
 
-
 const JWT = require('jsonwebtoken')
+
+require('dotenv').config();
+
 
 const verifyJWT = (req, res, next) =>{
 
-    const authHeader = req.headers.authorization || req.headers.authorization;
 
-    
+    const authHeader = req.headers.authorization || req.headers.Authorization;
+
 
     //Check Token if it has proper format
     if(!authHeader?.startsWith('Bearer ')) return res.sendStatus(401);
@@ -17,7 +19,6 @@ const verifyJWT = (req, res, next) =>{
 
     //verify Token
     JWT.verify(token, process.env.ACCESS_TOKEN_SECRET,{
-
 
         algorithm: 'HS256'
 

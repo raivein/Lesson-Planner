@@ -1,4 +1,4 @@
-//Professors Data
+
 
 const fsPromises = require('fs').promises;
 
@@ -14,40 +14,36 @@ const ProfDB ={
     //setUsers call data from folder name this.users
     setProf: function(data){this.Prof = data}
 }
-
+//=====================================================================================================================================
 //creating "HnadleRegistrationControll" function variable to be asynchrnous (req, res)
-const HandleRegistrationController = async(req, res) =>{
+const HandleDeleteProfessorController = async(req, res) =>{
 
     //=================================================================================================================================
     //importing JSON data Username and Password request.body
-    const {Username, Password, Firstname, Lastname} = req.body;
-
+    const {id,Username} = req.body
+    
     //Check if input credentials of user is complete
-    if(!Username || !Password) return res.status(400).json({message:"Username and Password are required."});
+    if(!id || !Username) return res.status(400).json({message:"Username is required."});
     //=================================================================================================================================
+
+
 
     //=================================================================================================================================
     //Check if the professor exist
-    const foundProf = ProfDB.Prof.find((u) => u.Username == Username);
+    const foundProf = ProfDB.Prof.find((u) => u.id == id);
 
-    //Function Foundprof used and if true responde with error 400 and message " User (Example) Already EXIST" 
-    if(foundProf) return res.status(400).json({message: `This User ${Username} Already Exist!`});
+    //filter the name of the prof in order to isolate
+    const filteredProf = ProfDB.Prof.filter((x) => x.id !== foundProf.id);
     //=================================================================================================================================
+    
+
 
     //=================================================================================================================================
-    //if not in ProfDB ask user to Register
-    //create format of input Username(Left) as Directory, Username(Right) to go to that json title as inputs.
-    const newProf = {
-        id:ProfDB.Prof[ProfDB.Prof.length-1].id+1 ,
-        Username: Username,
-        Password: Password,
-        Firstname: Firstname,
-        Lastname: Lastname
-    }
     //calling out variable object variable DB. to overwrite what is inside the ProfDB.Prof, to add the newProf
-    ProfDB.setProf([...ProfDB.Prof, newProf]);
-
+    ProfDB.setProf(filteredProf);
     //=================================================================================================================================
+
+
 
     //=================================================================================================================================
    
@@ -55,7 +51,7 @@ const HandleRegistrationController = async(req, res) =>{
     try{
 
         await fsPromises.writeFile(path.join(__dirname, '..','Models','Professor.json'), JSON.stringify(ProfDB.Prof));
-        res.json({message: "You are now registered"}); 
+        res.json({message: `Your Username ${Username} is deleted`}); 
     } catch(err){
         console.error(err)
         res.sendstatus(500);
@@ -63,5 +59,5 @@ const HandleRegistrationController = async(req, res) =>{
     }
     
 }
-
-module.exports = {HandleRegistrationController}
+//=====================================================================================================================================
+module.exports = {HandleDeleteProfessorController}

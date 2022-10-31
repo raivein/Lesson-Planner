@@ -15,7 +15,7 @@ require(`dotenv`).config();
 //importing JWT to encrypt password Json Web Token
 const {verifyJWT} = require('./Middleware/verifyJWT.js');
 
-//Importing Cookie parser
+//Call back variable cookie parser Importing Cookie parser
 const cookieParser = require('cookie-parser');
 
 //set variable of function of path importing "path functions"
@@ -48,12 +48,14 @@ app.use(cookieParser())
 
 
 //====================================================================================================================
-//app use routes Start ..
+//app use routes
 
 //function app para ilagay ito sa URL"Directory", Calling Routes
-app.use('/api/data/Register/', require('./Routes/RegistrationR.js'));
+app.use('/api/data/Register', require('./Routes/RegistrationR.js'));
 app.use('/api/data/Login',require('./Routes/LoginR.js'));
 app.use('/api/data/refresh',require('./Routes/RefreshR.js'));
+app.use('/api/data/Delete', require('./Routes/ProfessorDeleteR.js'))
+//app.use('/ProfessorR', require('./Routes/Api/ProfessorR.js'));
 
 //app.use('/LoginPage/', require('./Routes/LoginPageR.js'));
 
