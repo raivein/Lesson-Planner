@@ -21,7 +21,8 @@ Step11: Send without username or password it will out different line
 Testing Login~
 Step12: terminal type require('crypto').randomBytes(64).toString('hex')
 Step 13: Create .env file
-Step 14: Enter the terminal and copy paste and type on the .env file "ACCESS_TOKEN_SECRET" : with the copy
+Step 16: Type on terminal Node
+Step 15: Enter the terminal and copy paste and type on the .env file "ACCESS_TOKEN_SECRET" : with the copy
 Step 15: Enter the terminal code and copy paste similar above but "REFRESH_TOKEN_SECRET" : with the new copy
 
 
@@ -32,10 +33,7 @@ Register
 Login
 Refresh
 Delete
-
-
 Logout
-
 
 
 ForgotPassword

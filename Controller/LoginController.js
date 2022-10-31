@@ -97,7 +97,7 @@ const HandleLoginController = async(req, res) =>{
             })
 
             //Send AccessToken as JSON
-            res.status(200).send("Login Successfuly").json({accessToken: accessToken});
+            res.status(200).json({message:"Login Successfuly",accessToken: accessToken});
 
 
         } catch(err){

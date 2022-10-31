@@ -51,11 +51,18 @@ app.use(cookieParser())
 //app use routes
 
 //function app para ilagay ito sa URL"Directory", Calling Routes
-app.use('/api/data/Register', require('./Routes/RegistrationR.js'));
-app.use('/api/data/Login',require('./Routes/LoginR.js'));
+app.use('/api/data/register', require('./Routes/RegistrationR.js'));
+
+app.use('/api/data/user',require('./Routes/UserInOutR.js'));
+
+
+
 app.use('/api/data/refresh',require('./Routes/RefreshR.js'));
-app.use('/api/data/Delete', require('./Routes/ProfessorDeleteR.js'))
-//app.use('/ProfessorR', require('./Routes/Api/ProfessorR.js'));
+app.use('/api/data/delete', require('./Routes/ProfessorDeleteR.js'))
+
+
+
+app.use('/Admin', require('./Routes/Api/AdminR.js'));
 
 //app.use('/LoginPage/', require('./Routes/LoginPageR.js'));
 
