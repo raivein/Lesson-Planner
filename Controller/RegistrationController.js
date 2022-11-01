@@ -20,7 +20,7 @@ const HandleRegistrationController = async(req, res) =>{
 
     //=================================================================================================================================
     //importing JSON data Username and Password request.body
-    const {Username, Password} = req.body;
+    const {Username, Password, Firstname, Lastname} = req.body;
 
     //Check if input credentials of user is complete
     if(!Username || !Password) return res.status(400).json({message:"Username and Password are required."});
@@ -38,8 +38,11 @@ const HandleRegistrationController = async(req, res) =>{
     //if not in ProfDB ask user to Register
     //create format of input Username(Left) as Directory, Username(Right) to go to that json title as inputs.
     const newProf = {
+        id:ProfDB.Prof[ProfDB.Prof.length-1].id+1 ,
         Username: Username,
-        Password: Password
+        Password: Password,
+        Firstname: Firstname,
+        Lastname: Lastname
     }
     //calling out variable object variable DB. to overwrite what is inside the ProfDB.Prof, to add the newProf
     ProfDB.setProf([...ProfDB.Prof, newProf]);
@@ -48,12 +51,11 @@ const HandleRegistrationController = async(req, res) =>{
 
     //=================================================================================================================================
    
-
     //to catch error so that the whole code or system will not stop.
     try{
 
         await fsPromises.writeFile(path.join(__dirname, '..','Models','Professor.json'), JSON.stringify(ProfDB.Prof));
-        res.json({message: "U R Now Registered Nigga"}); 
+        res.json({message: "You are now registered"}); 
     } catch(err){
         console.error(err)
         res.sendstatus(500);
