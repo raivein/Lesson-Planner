@@ -6,7 +6,8 @@ const bcrypt = require('bcrypt');
 
 const path = require('path');
 
-const JWT = require('jsonwebtoken')
+const JWT = require('jsonwebtoken');
+const e = require('express');
 
 //========================================================================================================================================================================
 
@@ -30,83 +31,84 @@ const HandleLoginController = async(req, res) =>{
     const {Username, Password} = req.body;
 
     //Validate input credentials of the prof in order to login
-    if(!Username || !Password) return res.status(400).json({message:"Username and Password are required."});
+    if(!Username || !Password) 
+        return res.status(400).json({
+            message:"Username and Password are required."
+        })
     //===================================================================================================================================================================
-
-
-
-    //===================================================================================================================================================================
+    
     //Create a function foundProf to look if the prof is existing in the DB, ProfDB line 15 is looking for object in Prof.json and find all available username
     const foundProf = ProfDB.Prof.find((u) => u.Username == Username);
 
     //if prof is found and it does not have authorization, do this.
-    if(!foundProf) res.sendStatus(401);
+    if(!foundProf){
+        return res.status(401).json({message:"User does not exist, contact ITSO"})
+    }else{
     //===================================================================================================================================================================
-
-
-
-    //===================================================================================================================================================================
-    //Create a function match to compare Password inputted if it is available in foundProf.Password
-    const match = bcrypt.compare(Password, foundProf.Password);
-
-    //If it the user exist and password match give token to Professor to allow access
-    if(match){
 
         try{
-            //Create a function named payload to call USERNAME
-            const payload = {
 
-                //calling JSON data USERNAME
-                Username: Username
-            }
+            //===================================================================================================================================================================
+            //Create a function match to compare Password inputted if it is available in foundProf.Password
+            const match = await bcrypt.compare(Password, foundProf.Password);
+            //If it the user exist and password match give token to Professor to allow access
+            if(match){
+                //Create a function named payload to call USERNAME
+                const payload = {
+
+                    //calling JSON data USERNAME
+                    Username: Username
+                }
             
-            //Create a signed token to allow user to access JWT.sign (payload is the Username, CALL .env for the access token)
-            const accessToken = JWT.sign(payload, process.env.ACCESS_TOKEN_SECRET,{
-                //Encrypting Algorithm with its expiry
-                algorithm: "HS256",
-                expiresIn: "30s"
-            });
+                //Create a signed token to allow user to access JWT.sign (payload is the Username, CALL .env for the access token)
+                const accessToken = JWT.sign(payload, process.env.ACCESS_TOKEN_SECRET,{
+                    //Encrypting Algorithm with its expiry
+                    algorithm: "HS256",
+                    expiresIn: "30s"
+                });
 
-            //Refreshes the token after the expirty (payload is the username, calling .env for the refresh token)
-            const refreshToken = JWT.sign(payload, process.env.REFRESH_TOKEN_SECRET,{
-                //Encrypting Algorith with its expiry
-                algorithm: "HS256",
-                expiresIn: "1d"
-            });
+                //Refreshes the token after the expirty (payload is the username, calling .env for the refresh token)
+                const refreshToken = JWT.sign(payload, process.env.REFRESH_TOKEN_SECRET,{
+                    //Encrypting Algorith with its expiry
+                    algorithm: "HS256",
+                    expiresIn: "1d"
+                });
 
-            //add refreshToken to Prof
-            const foundProfWithToken = {...foundProf, refreshToken: refreshToken};
-            //
-            const filteredProf = ProfDB.Prof.filter((u) => u.Username !== Username);
+                //add refreshToken to Prof
+                const foundProfWithToken = {...foundProf, refreshToken: refreshToken};
+                //
+                const filteredProf = ProfDB.Prof.filter((u) => u.Username !== Username);
             
-            ProfDB.setProf([...filteredProf, foundProfWithToken]);
+                ProfDB.setProf([...filteredProf, foundProfWithToken]);
 
-            await fsPromises.writeFile(
+                await fsPromises.writeFile(
 
-                path.join(__dirname, "..",'Models', 'Professor.json'),
+                    path.join(__dirname, "..",'Models', 'Professor.json'),
 
-                JSON.stringify(ProfDB.Prof)
-            )
+                    JSON.stringify(ProfDB.Prof)
+                )
 
-            //Send RefreshToken as Cookie
-            res.cookie('jwt', refreshToken, {
-                //duration of the refresh cookie
-                maxAge: 24 * 60 * 60 * 1000,
+                //Send RefreshToken as Cookie
+                res.cookie('jwt', refreshToken, {
+                    //duration of the refresh cookie
+                    maxAge: 24 * 60 * 60 * 1000,
                     
-                httpOnly: true,
-            })
+                    httpOnly: true,
+                })
 
-            //Send AccessToken as JSON
-            res.status(200).json({message:"Login Successfuly",accessToken: accessToken});
+                //Send AccessToken as JSON
+                res.status(200).json({message:"Login Successfuly",accessToken: accessToken});
 
-
+            }else{
+                res.status(401).json({message:"Incorrect Password"});
+            }
         } catch(err){
             console.error(err)
             res.sendStatus(500)
         }
-            
-    }
-    
+    }         
 }
+    
+
 //==========================================================================================================================================================================
 module.exports = {HandleLoginController}

@@ -42,6 +42,7 @@ app.use(express.static(path.join(__dirname,'Public')));
 app.use(cookieParser())
 
 
+
 //App use End ..
 //====================================================================================================================
 
@@ -56,13 +57,11 @@ app.use('/api/data/register', require('./Routes/RegistrationR.js'));
 app.use('/api/data/user',require('./Routes/UserInOutR.js'));
 
 
-
 app.use('/api/data/refresh',require('./Routes/RefreshR.js'));
 app.use('/api/data/delete', require('./Routes/ProfessorDeleteR.js'))
 
 
-
-app.use('/Admin', require('./Routes/Api/AdminR.js'));
+app.use('/admin', require('./Routes/Api/AdminR.js'));
 
 //app.use('/LoginPage/', require('./Routes/LoginPageR.js'));
 
@@ -70,7 +69,7 @@ app.use('/Admin', require('./Routes/Api/AdminR.js'));
 //====================================================================================================================
 
 //app.get to response localhost5050 with this HTML
-app.get('/LoginPage', (req,res) => {
+app.get('/loginPage', (req,res) => {
 
     res.sendFile(path.join(__dirname,'Views','login.html'))
 })

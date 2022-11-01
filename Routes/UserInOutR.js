@@ -20,12 +20,6 @@ router.route('/logout')
 module.exports = router;
 
 
-
-
-
-
 //Using function router to use route library to directory root "(/)"
 
     //para makapag post at gamitin si HandleRegistrationController sa Controller Folder
-    
-
