@@ -37,6 +37,9 @@ const HandleDeleteProfessorController = async(req, res) =>{
     //Check if the professor exist
     const foundProf = ProfDB.Prof.find((u) => u.id == id);
 
+    if(!foundProf)
+        return res.status(403).json({message:"This user ID does not exist"})
+
     //filter the name of the prof in order to isolate
     const filteredProf = ProfDB.Prof.filter((x) => x.id !== foundProf.id);
     //===================================================================================================================================
