@@ -46,7 +46,7 @@ Step 15: Enter the terminal and copy paste and type on the .env file "ACCESS_TOK
 Step 15: Enter the terminal code and copy paste similar above but "REFRESH_TOKEN_SECRET" : with the new copy
 
 
-
+npm run start
 
 
 Register
