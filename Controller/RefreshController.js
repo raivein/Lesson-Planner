@@ -48,13 +48,13 @@ const HandleRefreshToken = (req, res) => {
 
     },(err, decoded) => {
 
-        if(err || foundProf.Username !== decoded.Username) return res.sendStatus(403);
+        if(err || foundProf.Username !== decoded.UserInfo.Username) return res.sendStatus(403);
 
         const Roles = Object.values(foundProf.Roles);
 
         const payload = {
-            "Userinfo": {
-                "Username": decoded.Username,
+            "UserInfo": {
+                "Username": decoded.UserInfo.Username,
                 "Roles": Roles
             }
         };

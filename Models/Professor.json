@@ -1,14 +1,1 @@
-[
-    {
-        "id": 1,
-        "Roles": {
-            "Admin": 5150,
-            "Professor": 2023
-        },
-        "Username": "User1",
-        "Password": "$2b$10$jHjUDRkhp5iZGORS3RtIJ.Qz.qAjLKgOGrHC11t7rrS/0YtdhZRv6",
-        "Firstname": "Arnauld",
-        "Lastname": "Anin",
-        "refreshToken": ""
-    }
-]
+[{"id":3,"Username":"Prof2","Roles":{"Professor":2023},"Password":"$2b$10$TcOS4ItHKgi.EU1Wdd..Ue5lYgeP/rVbY1kkIr/dOW6.0yhQm0BTm","Firstname":"Kass","Lastname":"adin"},{"id":2,"Username":"Prof1","Roles":"Admin","Password":"$2b$10$WhqasR1zng4/mZQkbXNex.NeHT4xfOHNOxlyAenIVroSVOAENHlKO","Firstname":"Prof1test","Lastname":"Pyke","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJVc2VybmFtZSI6IlByb2YxIiwiUm9sZXMiOlsyMDIzXX0sImlhdCI6MTY2NzY2OTY0NiwiZXhwIjoxNjY3NzU2MDQ2fQ.u-S1klfyWREDhTTcbCvkl7--2yJ0o3q30WNF1HZYgus"},{"id":1,"Username":"ADMIN","Roles":{"Admin":5150,"Professor":2023},"Password":"$2b$10$NeML5yFtjX/C1loczNJzXeVlRzFL.eVcZhcQliutePR/JG01lpfiy","Firstname":"ADMIN","Lastname":"ADMIN","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJVc2VybmFtZSI6IkFETUlOIiwiUm9sZXMiOls1MTUwLDIwMjNdfSwiaWF0IjoxNjY3NjcwMjI5LCJleHAiOjE2Njc3NTY2Mjl9.7ZYcRmdkV9ePCCr3-iwg4QOibLYxzfzzOi4skyB608g"},{"id":2,"Username":"Prof3","Roles":{"Professor":2023},"Password":"$2b$10$H7dTYHQIa98Wu5cvNzlVQuVoE0uveOxnrTv3adv34Ydlj9.AR8FjO","Firstname":"Kass","Lastname":"adin"}]
