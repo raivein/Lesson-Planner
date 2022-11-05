@@ -40,7 +40,7 @@ const HandleRegistrationController = async(req, res) =>{
    
     //to catch error so that the whole code or system will not stop.
     try{
-        //=================================================================================================================================
+        //===============================================================================================================================
         
         const hashedPassword = await bcrypt.hash(Password, 10);
         //Store ti
@@ -49,10 +49,14 @@ const HandleRegistrationController = async(req, res) =>{
         const newProf = {
          id:ProfDB.Prof[ProfDB.Prof.length-1].id+1 ,
             Username: Username,
+            Roles:{"Professor": 2023},
             Password: hashedPassword,
             Firstname: Firstname,
             Lastname: Lastname
     };
+
+
+
         //calling out variable object variable DB. to overwrite what is inside the ProfDB.Prof, to add the newProf
         ProfDB.setProf([...ProfDB.Prof, newProf]);
         //=================================================================================================================================

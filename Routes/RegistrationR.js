@@ -3,7 +3,10 @@
 //Use function router to import express and function Router
 const router = require('express').Router();
 
+const ROLES_LIST = require('../config/Roles_List.js');
 const {HandleRegistrationController} = require('../Controller/RegistrationController.js');
+
+const VerifyRoles = require('../Middleware/VerifyRoles')
 
 //Using function router to use route library to directory root "(/)"
 router.route('/')

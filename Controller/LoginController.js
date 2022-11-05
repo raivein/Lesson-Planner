@@ -38,7 +38,7 @@ const HandleLoginController = async(req, res) =>{
     //===================================================================================================================================================================
     
     //Create a function foundProf to look if the prof is existing in the DB, ProfDB line 15 is looking for object in Prof.json and find all available username
-    const foundProf = ProfDB.Prof.find((u) => u.Username == Username);
+    const foundProf = ProfDB.Prof.find((u) => u.Username == Username);//db caller for users
 
     //if prof is found and it does not have authorization, do this.
     if(!foundProf){
@@ -53,11 +53,20 @@ const HandleLoginController = async(req, res) =>{
             const match = await bcrypt.compare(Password, foundProf.Password);
             //If it the user exist and password match give token to Professor to allow access
             if(match){
+
+                const Roles = Object.values(foundProf.Roles)
+
+
+
                 //Create a function named payload to call USERNAME
                 const payload = {
 
+                    "UserInfo": {
                     //calling JSON data USERNAME
-                    Username: Username
+                        "Username": Username,
+                        "Roles": Roles
+
+                    }
                 }
             
                 //Create a signed token to allow user to access JWT.sign (payload is the Username, CALL .env for the access token)

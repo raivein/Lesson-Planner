@@ -5,7 +5,13 @@ const express = require('express');
 const router = express.Router();
 //const path = require('path');
 
-const verifyJWT = require('../../Middleware/verifyJWT');
+const {verifyJWT} = require('../../Middleware/verifyJWT')
+
+
+
+const ROLES_LIST = require('../../config/Roles_List');
+
+const VerifyRoles = require('../../Middleware/VerifyRoles');
 
 
 
@@ -15,7 +21,7 @@ const {UpdateController} = require('../../Controller/UpdateController');
 
 router.route('/get')
 
-    .get(GetController)
+    .get(verifyJWT,VerifyRoles(ROLES_LIST.Admin),GetController)
 
 router.route('/update')
     .put(UpdateController)

@@ -50,8 +50,13 @@ const HandleRefreshToken = (req, res) => {
 
         if(err || foundProf.Username !== decoded.Username) return res.sendStatus(403);
 
+        const Roles = Object.values(foundProf.Roles);
+
         const payload = {
-            Username: decoded.Username
+            "Userinfo": {
+                "Username": decoded.Username,
+                "Roles": Roles
+            }
         };
         const accessToken = JWT.sign(payload, process.env.ACCESS_TOKEN_SECRET,{
             algorithm: "HS256",

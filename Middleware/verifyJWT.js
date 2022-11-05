@@ -1,5 +1,6 @@
 
-const JWT = require('jsonwebtoken')
+const JWT = require('jsonwebtoken');
+const { User } = require('../config/Roles_List');
 
 require('dotenv').config();
 
@@ -19,13 +20,18 @@ const verifyJWT = (req, res, next) =>{
         algorithm: 'HS256'
 
 
-    }, (err, decode) => {
-        if(err) return res.sendStatus(403);
+        }, (err, decode) => {
 
-        req.Username = decode.Username;
+            
+        if(err) return res.sendStatus(403);
+        
+
+        req.Username = decode.UserInfo.Username;
+        req.Roles = decode.UserInfo.Roles;
 
         next();
-    })
+        }
+    );
 }
 
 module.exports = {verifyJWT}
