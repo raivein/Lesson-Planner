@@ -1,1 +1,25 @@
-[{"id":1,"Username":"User3","Password":"User3","Firstname":"Arnauld","Lastname":"Anin","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VybmFtZSI6IlVzZXIzIiwiaWF0IjoxNjY3MjkzMjQ1LCJleHAiOjE2NjczNzk2NDV9.GZZjyDmiYvdUWPGeF73_wSNkjS_3BgHR0azn-tDsQfE"},{"id":2,"Username":"User5","Password":"$2b$10$UnpreXq2cLG5HvsehpCrSe4D7I7K.JI.2Y7VsqnBxLk9rlY8VD1ke","Firstname":"Arnauld","Lastname":"Anin","refreshToken":""},{"id":3,"Username":"User1","Password":"$2b$10$jHjUDRkhp5iZGORS3RtIJ.Qz.qAjLKgOGrHC11t7rrS/0YtdhZRv6","Firstname":"Arnauld","Lastname":"Anin"}]
+[
+    {
+        "id": 1,
+        "Username": "User3",
+        "Password": "User3",
+        "Firstname": "Arnauld",
+        "Lastname": "Anin",
+        "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VybmFtZSI6IlVzZXIzIiwiaWF0IjoxNjY3MjkzMjQ1LCJleHAiOjE2NjczNzk2NDV9.GZZjyDmiYvdUWPGeF73_wSNkjS_3BgHR0azn-tDsQfE"
+    },
+    {
+        "id": 2,
+        "Username": "User5",
+        "Password": "$2b$10$UnpreXq2cLG5HvsehpCrSe4D7I7K.JI.2Y7VsqnBxLk9rlY8VD1ke",
+        "Firstname": "Arnauld",
+        "Lastname": "Anin",
+        "refreshToken": ""
+    },
+    {
+        "id": 3,
+        "Username": "User1",
+        "Password": "$2b$10$jHjUDRkhp5iZGORS3RtIJ.Qz.qAjLKgOGrHC11t7rrS/0YtdhZRv6",
+        "Firstname": "Arnauld",
+        "Lastname": "Anin"
+    }
+]

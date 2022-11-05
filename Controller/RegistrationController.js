@@ -34,11 +34,6 @@ const HandleRegistrationController = async(req, res) =>{
     //Function Foundprof used and if true responde with error 400 and message " User (Example) Already EXIST" 
     if(foundProf) return res.status(400).json({message: `This User ${Username} Already Exist!`});
     //=================================================================================================================================
-
-    
-
-  
-
    
 
     //=================================================================================================================================
