@@ -1,3 +1,4 @@
+
 //=========================================================================================================================================================================
 
 const fsPromises = require('fs').promises;
@@ -7,11 +8,7 @@ const bcrypt = require('bcrypt');
 const path = require('path');
 
 const JWT = require('jsonwebtoken');
-const e = require('express');
-
 //========================================================================================================================================================================
-
-
 
 //========================================================================================================================================================================
 //creating variable professorDB to callout professor.json file
@@ -35,7 +32,6 @@ const HandleLoginController = async(req, res) =>{
         return res.status(400).json({
             message:"Username and Password are required."
         })
-    //===================================================================================================================================================================
     
     //Create a function foundProf to look if the prof is existing in the DB, ProfDB line 15 is looking for object in Prof.json and find all available username
     const foundProf = ProfDB.Prof.find((u) => u.Username == Username);//db caller for users
@@ -46,9 +42,9 @@ const HandleLoginController = async(req, res) =>{
     }else{
     //===================================================================================================================================================================
 
+    //===================================================================================================================================================================
         try{
 
-            //===================================================================================================================================================================
             //Create a function match to compare Password inputted if it is available in foundProf.Password
             const match = await bcrypt.compare(Password, foundProf.Password);
             //If it the user exist and password match give token to Professor to allow access
@@ -117,7 +113,5 @@ const HandleLoginController = async(req, res) =>{
         }
     }         
 }
-    
-
 //==========================================================================================================================================================================
 module.exports = {HandleLoginController}

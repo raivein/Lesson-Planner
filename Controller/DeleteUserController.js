@@ -1,8 +1,8 @@
 //================================Admin delete users==========================================
-
+//Creating a callback variable to import function fs promises
 const fsPromises = require('fs').promises;
 
-
+//Creating a callback variable to import function path
 const path = require('path');
 
 //Setting variable "ProfDB" as function variable for calling user.json data
@@ -16,45 +16,31 @@ const ProfDB ={
 }
 //=====================================================================================================================================
 //creating "HnadleRegistrationControll" function variable to be asynchrnous (req, res)
-const HandleDeleteProfessorController = async(req, res) =>{
-
-
-//====================================================Version 1========================================================================
-//===================================Only The Admin has the rights to delete User======================================================
-
-
+const DeleteUserController = async(req, res) =>{
+//=======================================================Version 1=====================================================================
+//==========================================Only The Admin has the rights to delete User===============================================
     //=================================================================================================================================
     //importing JSON data Username and Password request.body
     const {id,Username} = req.body
     
     //Check if input credentials of user is complete
     if(!id || !Username) return res.status(400).json({message:"Username is required."});
-    //===================================================================================================================================
 
-
-
-    //===================================================================================================================================
     //Check if the professor exist
     const foundProf = ProfDB.Prof.find((u) => u.id == id);
-
+    
+    //if prof is not found print this message
     if(!foundProf)
         return res.status(403).json({message:"This user ID does not exist"})
 
     //filter the name of the prof in order to isolate
     const filteredProf = ProfDB.Prof.filter((x) => x.id !== foundProf.id);
-    //===================================================================================================================================
-    
 
-
-    //===================================================================================================================================
     //calling out variable object variable DB. to overwrite what is inside the ProfDB.Prof, to add the newProf
     ProfDB.setProf(filteredProf);
     //===================================================================================================================================
 
-
-
     //===================================================================================================================================
-   
     //to catch error so that the whole code or system will not stop.
     try{
 
@@ -63,9 +49,12 @@ const HandleDeleteProfessorController = async(req, res) =>{
     } catch(err){
         console.error(err)
         res.sendstatus(500);
-       
     }
 //========================================================================================================================================
+
+
+
+
 
 //================================================================Version 2 ==============================================================
 //=======================================Professor Has capabilities to delete its own account=============================================
@@ -119,4 +108,4 @@ const HandleDeleteProfessorController = async(req, res) =>{
     
 }
 //=====================================================================================================================================
-module.exports = {HandleDeleteProfessorController}
+module.exports = {DeleteUserController}

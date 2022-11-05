@@ -2,7 +2,6 @@
 
 //=====================================================================================================================
 //Imports Start..
-
 //call back variable set to express to import express
 const express = require('express');
 
@@ -23,51 +22,41 @@ const path = require('path')
 
 //set variable of enviornment port to (PORT) and environment (PORT) set to localhost 5050
 const PORT = process.env.PORT || 5050;
-
 //Imports End ..
 //====================================================================================================================
 
-
-
 //====================================================================================================================
 //App Use Start ..
-
 //parse Forms
 app.use(express.urlencoded({extended: false}));
+
 //Parse JSON
 app.use(express.json());
+
 //function to use absolute file path
 app.use(express.static(path.join(__dirname,'Public')));
+
 //Function to attach cookies to client request object
 app.use(cookieParser())
-
-
-
 //App use End ..
 //====================================================================================================================
 
-
-
 //====================================================================================================================
 //app use routes
-
 //function app para ilagay ito sa URL"Directory", Calling Routes
 app.use('/api/data/register', require('./Routes/RegistrationR.js'));
 
 app.use('/api/data/user',require('./Routes/UserInOutR.js'));
 
-
 app.use('/api/data/refresh',require('./Routes/RefreshR.js'));
-app.use('/api/data/delete', require('./Routes/ProfessorDeleteR.js'))
-
 
 app.use('/admin', require('./Routes/Api/AdminR.js'));
 
 //app.use('/LoginPage/', require('./Routes/LoginPageR.js'));
-
 //app use routes End ..
 //====================================================================================================================
 
+//====================================================================================================================
 //app.get to response localhost5050 with this HTML
 app.get('/loginPage', (req,res) => {
 
