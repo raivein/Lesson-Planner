@@ -18,8 +18,3 @@ router.route('/logout')
 
 //Export as objects lahat ng laman neto kase JSON file yung tinatawag neto "Line 7"
 module.exports = router;
-
-
-//Using function router to use route library to directory root "(/)"
-
-    //para makapag post at gamitin si HandleRegistrationController sa Controller Folder

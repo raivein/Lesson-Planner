@@ -1,0 +1,68 @@
+[
+    {
+        "id": "1",
+        "GradingPeriod": "Quarterly",
+        "Week": "3 weeks",
+        "NoOfHours": "24hours",
+        "Laboratory": "12hours",
+        "Lecture": "12hours",
+        "LessonInfo": {
+            "Title": "Testing Title",
+            "IntendedLearningOutcomes": "Testing Intended Learning Outcomes",
+            "Topics": "Testing Topics",
+            "TLAandATs": {
+                "TLA": {
+                    "TeachingandLearningActivities": "Testing Learning Activities"
+                },
+                "ATs": {
+                    "AssessementTasks": "TestingAssessement Tasks"
+                }
+            },
+            "InstructionalMaterials": "Testing InstructionalMaterials"
+        }
+    },
+    {
+        "id": "1",
+        "GradingPeriod": "Quarterly",
+        "Week": "3 weeks",
+        "NoOfHours": "24hours",
+        "Laboratory": "12hours",
+        "Lecture": "12hours",
+        "LessonInfo": {
+            "Title": "Testing Title",
+            "IntendedLearningOutcomes": "Testing Intended Learning Outcomes",
+            "Topics": "Testing Topics",
+            "TLAandATs": {
+                "TLA": {
+                    "TeachingandLearningActivities": "Testing Learning Activities"
+                },
+                "ATs": {
+                    "AssessementTasks": "TestingAssessement Tasks"
+                }
+            },
+            "InstructionalMaterials": "Testing InstructionalMaterials"
+        }
+    },
+    {
+        "id": "1",
+        "GradingPeriod": "Quarterly",
+        "Week": "3 weeks",
+        "NoOfHours": "24hours",
+        "Laboratory": "12hours",
+        "Lecture": "12hours",
+        "LessonInfo": {
+            "Title": "Testing Title",
+            "IntendedLearningOutcomes": "Testing Intended Learning Outcomes",
+            "Topics": "Testing Topics",
+            "TLAandATs": {
+                "TLA": {
+                    "TeachingandLearningActivities": "Testing Learning Activities"
+                },
+                "ATs": {
+                    "AssessementTasks": "TestingAssessement Tasks"
+                }
+            },
+            "InstructionalMaterials": "Testing InstructionalMaterials"
+        }
+    }
+]

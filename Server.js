@@ -38,6 +38,8 @@ app.use(express.static(path.join(__dirname,'Public')));
 
 //Function to attach cookies to client request object
 app.use(cookieParser())
+
+app.use(express.static(path.join(__dirname,'../Aztecbinaynay/Lesson-Planner/build')))
 //App use End ..
 //====================================================================================================================
 
@@ -52,16 +54,18 @@ app.use('/api/data/refresh',require('./Routes/RefreshR.js'));
 
 app.use('/admin', require('./Routes/Api/AdminR.js'));
 
+app.use('/api/data/dashboard/create',require('./Routes/Api/CreateFileControllerR'));
+
 //app.use('/LoginPage/', require('./Routes/LoginPageR.js'));
 //app use routes End ..
 //====================================================================================================================
 
 //====================================================================================================================
 //app.get to response localhost5050 with this HTML
-app.get('/loginPage', (req,res) => {
+// app.get('/loginPage', (req,res) => {
 
-    res.sendFile(path.join(__dirname,'Views','login.html'))
-})
+//     res.sendFile(path.join(__dirname,'Views','login.html'))
+// })
 
 
 
@@ -78,10 +82,6 @@ app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}/\t <== ROOT URL`);
     console.log(`=======================================`);
 })
-
-
-
-
 //MVC
 //MODEL VIEW CONTROLLER
 //MODEL JSON  
