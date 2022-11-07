@@ -56,6 +56,8 @@ app.use('/admin', require('./Routes/Api/AdminR.js'));
 
 app.use('/api/data/dashboard/create',require('./Routes/Api/CreateFileControllerR'));
 
+app.use('/api/data/dashboard/update',require('./Routes/Api/UpdateFileControllerR'));
+
 //app.use('/LoginPage/', require('./Routes/LoginPageR.js'));
 //app use routes End ..
 //====================================================================================================================

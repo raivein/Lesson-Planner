@@ -1,4 +1,4 @@
-//=========================================RoutesCreateFileController.js=======================
+//=========================================RoutesUpdateFileController.js=======================
 
 const express = require('express');
 
@@ -12,11 +12,10 @@ const VerifyRoles = require('../../Middleware/VerifyRoles');
 
 //==================================================================================
 
-const {CreateFileController} = require('../../Controller/FileController/CreateFileController');
+const {UpdateFileController} = require('../../Controller/FileController/UpdateFileController');
 const ROLES_LIST = require('../../config/Roles_List');
 
 router.route('/')
-    .post(CreateFileController)//verifyJWT,VerifyRoles(ROLES_LIST.Professor),
-
+    .put(UpdateFileController) //verifyJWT,VerifyRoles(ROLES_LIST.Professor),
+    
 module.exports = router;
-

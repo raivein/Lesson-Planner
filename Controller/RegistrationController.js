@@ -47,7 +47,7 @@ const HandleRegistrationController = async(req, res) =>{
         //if not in ProfDB ask user to Register
         //create format of input Username(Left) as Directory, Username(Right) to go to that json title as inputs.
         const newProf = {
-         id:ProfDB.Prof[ProfDB.Prof.length-1].id+1 ,
+         id:ProfDB.Prof[ProfDB.Prof.length-1].id+1 || 1,
             Username: Username,
             Roles:{"Professor": 2023},
             Password: hashedPassword,

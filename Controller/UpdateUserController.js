@@ -1,6 +1,7 @@
 
 //============================================Admin to Update all User info===============================
-
+const fsPromises = require('fs').promises;
+const path = require('path')
 //Importing ProfDatabase
 const ProfDB = {
     Prof: require('../Models/Professor.json'),
@@ -31,10 +32,11 @@ const UpdateUserController = async(req, res) =>{
     const filteredArray = ProfDB.Prof.filter(Profs => Profs.id !== parseInt(req.body.id));
 
     //Construct UnsortedArray 
-    const unsortedArray = [...filteredArray, Prof];
+    const unsortedArray = [...filteredArray, ProfDB.Prof];
 
   ProfDB.setProf(unsortedArray.sort((a, b) => a.id > b.id ? 1 :a.id < b.id ? -1 : 0 ));
     res.json(ProfDB.Prof);
+    await fsPromises.writeFile(path.join(__dirname,'..','Models','Professor.json'), JSON.stringify(ProfDB.Prof)); 
 }
 
 module.exports = {UpdateUserController}

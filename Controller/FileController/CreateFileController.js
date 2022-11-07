@@ -3,8 +3,6 @@
 const fsPromises = require('fs').promises;
 const path = require('path')
 
-
-
 const LessonFileDB = { 
     Lesson: require('../../Models/LessonFile.json'),
     setLesson: function(data){this.Lesson = data}
@@ -21,7 +19,7 @@ const CreateFileController= (req, res) => {
         }
 
     const NewLesson = {
-        "id" : req.body.id,
+        id : LessonFileDB.Lesson?.length ? LessonFileDB.Lesson[LessonFileDB.Lesson.length - 1].id + 1 : 1,
         "GradingPeriod": req.body.GradingPeriod,
         "Week": req.body.Week,
         "NoOfHours": req.body.NoOfHours,
@@ -41,6 +39,8 @@ const CreateFileController= (req, res) => {
             },
             "InstructionalMaterials":req.body.LessonInfo.InstructionalMaterials,
         },
+        "Remarks":{"Not_Yet_Reviewed":000},
+        "Comment":req.body.Comment
     }
 
     LessonFileDB.setLesson([...LessonFileDB.Lesson, NewLesson]);

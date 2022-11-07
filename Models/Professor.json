@@ -9,18 +9,7 @@
         "Password": "$2b$10$NeML5yFtjX/C1loczNJzXeVlRzFL.eVcZhcQliutePR/JG01lpfiy",
         "Firstname": "ADMIN",
         "Lastname": "ADMIN",
-        "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJVc2VybmFtZSI6IkFETUlOIiwiUm9sZXMiOls1MTUwLDIwMjNdfSwiaWF0IjoxNjY3Njc0MTE5LCJleHAiOjE2Njc3NjA1MTl9.tHVt68xXAIWE6sEoASqWGXBePNoH9UhISG42iz2bZy8"
-    },
-    {
-        "id": 3,
-        "Username": "Prof2",
-        "Roles": {
-            "Professor": 2023
-        },
-        "Password": "$2b$10$SpIUCK9JQeduXJqqjCYyzeLUl7NwBQA5z8khF7co7BC0n/QwAJajK",
-        "Firstname": "Kass",
-        "Lastname": "adin",
-        "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJVc2VybmFtZSI6IlByb2YyIiwiUm9sZXMiOlsyMDIzXX0sImlhdCI6MTY2Nzc2MzEyMCwiZXhwIjoxNjY3ODQ5NTIwfQ.Iln28rurj6LlXJnM0rJ-2OkEkWFEprP-Y4qbMDXzOM4"
+        "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJVc2VybmFtZSI6IkFETUlOIiwiUm9sZXMiOls1MTUwLDIwMjNdfSwiaWF0IjoxNjY3Nzg5ODg4LCJleHAiOjE2Njc4NzYyODh9.OShVDNazDcwWdDkT_7hwZKsLP4nFJQRdUDirqfdhn-c"
     },
     {
         "id": 2,
@@ -28,9 +17,18 @@
         "Roles": {
             "Professor": 2023
         },
-        "Password": "$2b$10$xlPGZwdVZ5jH9/kfRbIU1uCTLG.HS3ibqgB5i2Z5ssDUWVnbw9clu",
+        "Password": "$2b$10$0U7gu5EfT0vYxuFTDAUpFOjkTKFSodeOAqPPvCpE4aYkdV0xLf836",
         "Firstname": "Kass",
-        "Lastname": "adin",
-        "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJVc2VybmFtZSI6IlByb2YxIiwiUm9sZXMiOlsyMDIzXX0sImlhdCI6MTY2Nzc2MzE2MywiZXhwIjoxNjY3ODQ5NTYzfQ.Qo7Fd2NtTkDt8cd8UkFk2GnBMovGFfIRbHcXLOGeXHs"
+        "Lastname": "adin"
+    },
+    {
+        "id": 3,
+        "Username": "Prof2",
+        "Roles": {
+            "Professor": 2023
+        },
+        "Password": "$2b$10$alpjlInj10LID.j2BbTNPuyXu7GJjjkWxC2HtbLQcsgtSYgPZt..G",
+        "Firstname": "Kass",
+        "Lastname": "adin"
     }
 ]
