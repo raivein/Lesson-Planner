@@ -16,6 +16,6 @@ const {UpdateFileController} = require('../../Controller/FileController/UpdateFi
 const ROLES_LIST = require('../../config/Roles_List');
 
 router.route('/')
-    .put(UpdateFileController) //verifyJWT,VerifyRoles(ROLES_LIST.Professor),
+    .put(verifyJWT,VerifyRoles(ROLES_LIST.Professor),UpdateFileController) //
     
 module.exports = router;
