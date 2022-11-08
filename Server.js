@@ -4,6 +4,19 @@
 //Imports Start..
 //call back variable set to express to import express
 const express = require('express');
+const mongoose = require('mongoose');
+
+const uri = 'mongodb+srv://myadmindb:myadmindb123@firstcluster.zxdxv9y.mongodb.net/?retryWrites=true&w=majority'
+
+async function connect() {
+    try {
+        await mongoose.connect(uri)
+        console.log("Connnected to MongoDB")
+    }catch (error) {
+        console.error(error);
+    }
+}
+connect();
 
 //call back variable app to call all imported function of express()
 const app = express(); 
