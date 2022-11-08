@@ -16,7 +16,7 @@ const {CreateFileController} = require('../../Controller/FileController/CreateFi
 const ROLES_LIST = require('../../config/Roles_List');
 
 router.route('/')
-    .post(CreateFileController)//verifyJWT,VerifyRoles(ROLES_LIST.Professor),
+    .post(verifyJWT,VerifyRoles(ROLES_LIST.Professor),CreateFileController)//
 
 module.exports = router;
 

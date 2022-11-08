@@ -35,7 +35,6 @@ const HandleRegistrationController = async(req, res) =>{
     if(foundProf) return res.status(400).json({message: `This User ${Username} Already Exist!`});
     //=================================================================================================================================
    
-
     //=================================================================================================================================
    
     //to catch error so that the whole code or system will not stop.
@@ -55,16 +54,11 @@ const HandleRegistrationController = async(req, res) =>{
             Lastname: Lastname
     };
 
-
-
         //calling out variable object variable DB. to overwrite what is inside the ProfDB.Prof, to add the newProf
         ProfDB.setProf([...ProfDB.Prof, newProf]);
         //=================================================================================================================================
         await fsPromises.writeFile(path.join(__dirname, '..','Models','Professor.json'), JSON.stringify(ProfDB.Prof));
         res.json({message: "You are now registered"}); 
-
-
-
 
     } catch(err){
         console.error(err)
