@@ -23,7 +23,7 @@ const DeleteUserController = async(req, res) =>{
     //importing JSON data Username and Password request.body
     const {id,Username} = req.body
     
-    //Check if input credentials of user is complete
+    //Check if input credentials of user is complete4
     if(!id || !Username) return res.status(400).json({message:"Username is required."});
 
     //Check if the professor exist

@@ -69,7 +69,7 @@ const HandleLoginController = async(req, res) =>{
                 const accessToken = JWT.sign(payload, process.env.ACCESS_TOKEN_SECRET,{
                     //Encrypting Algorithm with its expiry
                     algorithm: "HS256",
-                    expiresIn: "30s"
+                    expiresIn: "30m"
                 });
 
                 //Refreshes the token after the expirty (payload is the username, calling .env for the refresh token)

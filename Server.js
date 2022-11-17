@@ -58,6 +58,9 @@ app.use('/api/data/dashboard/create',require('./Routes/Api/CreateFileControllerR
 
 app.use('/api/data/dashboard/update',require('./Routes/Api/UpdateFileControllerR'));
 
+app.use('/api/data/dashboard/get',require('./Routes/Api/GetFileControllerR'));
+
+app.use('/api/data/dashboard/delete',require('./Routes/Api/DeleteFileControllerR'));
 //app.use('/LoginPage/', require('./Routes/LoginPageR.js'));
 //app use routes End ..
 //====================================================================================================================
